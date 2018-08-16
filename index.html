@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="utf-8">
+   <meta name="description" content="CALCULADORA RECONVERSIÓN MONETARIA">
+   <meta name="keywords" content="calculadora reconversión monetaria bolivares fuertes soberanos">
+   <meta name="author" content="Jonathan Tovar - jatskaneda@gmail.com">
+   <title>CALCULADORA RECONVERSIÓN MONETARIA</title>
+   <!-- Bootstrap Core CSS -->
+   <link href="css/bootstrap.css" rel="stylesheet">
+   <!-- Custom CSS -->
+   <link href="css/modern-business.css" rel="stylesheet">
+   <style type="text/css">
+     body {
+      height: 100%;
+      background-color: #C8CBC9;
+    }
+   </style>
+</head>
+<body>
+<br><br>
+<article>
+ 	<div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-primary">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">CALCULADORA RECONVERSIÓN MONETARIA</h3>
+                  </div>
+                  <div class="panel-body">
+                    <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon1">BsF</span>
+                      <input type="number" id="bolivarfuer" class="form-control form-control-lg" placeholder="Bolívar Fuerte" aria-describedby="basic-addon1" oninput="Converter(this.value)" onchange="Converter(this.value)" onkeypress="return isNumberKey(event)">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                      <span class="input-group-addon" id="basic-addon1">BsS</span>
+                      <input type="number" id="bolivarsov" class="form-control form-control-lg" placeholder="Bolívar Soberano" aria-describedby="basic-addon1" step=".01" oninput="Converter2(this.value)" onchange="Converter2(this.value)" onkeypress="return isNumberKey(event)">
+                    </div>
+                  </div>
+                </div>          
+        </div>        
+      </div>
+   </div>
+</article>
+<script>
+
+    function Converter(valNum) {
+      valNum=valNum/100000;
+      document.getElementById("bolivarsov").value = valNum=Math.floor(valNum * 100) / 100;
+    }
+
+    function Converter2(valNum) {
+      valNum=valNum*100000;
+      valNum=Math.floor(valNum * 100) / 100;
+      document.getElementById("bolivarfuer").value = Math.round(valNum);
+    }
+
+    function isNumberKey(evt)
+    {
+      var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+          return false;
+
+          return true;
+    }
+
+    function isNumberKey(evt)
+    {
+      var n = parseInt(this.value.replace(/\D/g,''),10);
+      fnf.value = n.toLocaleString();
+    }
+
+</script>
+</body>
+</html>
